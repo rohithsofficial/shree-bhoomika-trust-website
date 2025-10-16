@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Photo Gallery - Shree Bhoomika Social Service Trust (R)</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary: #2563eb;
+  --primary-dark: #1e40af;
+  --secondary: #06b6d4;
+  --accent: #f59e0b;
+  --text: #1f2937;
+  --text-light: #6b7280;
+  --bg: #ffffff;
+  --bg-light: #f9fafb;
+  --border: #e5e7eb;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.6;
+  color: var(--text);
+  background: var(--bg-light);
+  -webkit-font-smoothing: antialiased;
+}
+
+header {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.header-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: white;
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.logo i {
+  font-size: 2rem;
+}
+
+nav {
+  display: flex;
+  gap: 2rem;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+nav a:hover, nav a.active {
+  background: rgba(255,255,255,0.2);
+  transform: translateY(-2px);
+}
+
+.mobile-menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.page-header {
+  background: linear-gradient(135deg, rgba(37,99,235,0.95) 0%, rgba(30,64,175,0.95) 100%);
+  color: white;
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.page-header h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+}
+
+.page-header p {
+  font-size: 1.2rem;
+  opacity: 0.95;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.breadcrumb {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+  margin-top: 1rem;
+}
+
+.breadcrumb a {
+  color: white;
+  text-decoration: none;
+}
+
+main {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+}
+
+.section-intro {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 3rem;
+}
+
+.section-intro h2 {
+  font-size: 2rem;
+  color: var(--text);
+  margin-bottom: 1rem;
+}
+
+.section-intro p {
+  font-size: 1.1rem;
+  color: var(--text-light);
+  line-height: 1.8;
+}
+
+.gallery-stats {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+}
+
+.stat-item {
+  text-align: center;
+}
+
+.stat-number {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--primary);
+  margin-bottom: 0.25rem;
+}
+
+.stat-label {
+  color: var(--text-light);
+  font-weight: 600;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1rem;
+  aspect-ratio: 1;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.gallery-item:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.2);
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.1);
+}
+
+.gallery-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gallery-item:hover .gallery-overlay {
+  opacity: 1;
+}
+
+.gallery-overlay i {
+  color: white;
+  font-size: 2rem;
+}
+
+.lightbox {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.95);
+  z-index: 9999;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.lightbox.active {
+  display: flex;
+}
+
+.lightbox-content {
+  max-width: 90%;
+  max-height: 90%;
+  position: relative;
+}
+
+.lightbox-content img {
+  max-width: 100%;
+  max-height: 85vh;
+  object-fit: contain;
+  border-radius: 0.5rem;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: -3rem;
+  right: 0;
+  background: white;
+  border: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.lightbox-close:hover {
+  background: var(--accent);
+  color: white;
+  transform: rotate(90deg);
+}
+
+.lightbox-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: white;
+  border: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.lightbox-nav:hover {
+  background: var(--accent);
+  color: white;
+}
+
+.lightbox-prev {
+  left: 2rem;
+}
+
+.lightbox-next {
+  right: 2rem;
+}
+
+.lightbox-counter {
+  position: absolute;
+  bottom: -2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.load-more {
+  text-align: center;
+  margin: 3rem 0;
+}
+
+.load-more-btn {
+  padding: 1rem 2.5rem;
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.load-more-btn:hover {
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(37,99,235,0.3);
+}
+
+footer {
+  background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+  color: white;
+  padding: 4rem 2rem 2rem;
+  margin-top: 4rem;
+}
+
+.footer-content {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 3rem;
+  margin-bottom: 2rem;
+}
+
+.footer-section h3 {
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+  color: var(--accent);
+}
+
+.footer-section p {
+  color: #d1d5db;
+  line-height: 1.8;
+}
+
+.footer-links {
+  list-style: none;
+}
+
+.footer-links li {
+  margin-bottom: 0.75rem;
+}
+
+.footer-links a {
+  color: #d1d5db;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.footer-links a:hover {
+  color: var(--accent);
+  transform: translateX(4px);
+}
+
+.social-links {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.social-links a {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+  background: var(--accent);
+  transform: translateY(-4px);
+}
+
+.footer-bottom {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  text-align: center;
+  color: #9ca3af;
+}
+
+@media (max-width: 768px) {
+  nav {
+    position: fixed;
+    top: 70px;
+    left: -100%;
+    width: 100%;
+    background: var(--primary-dark);
+    flex-direction: column;
+    padding: 2rem;
+    transition: left 0.3s ease;
+  }
+
+  nav.active {
+    left: 0;
+  }
+
+  .mobile-menu-btn {
+    display: block;
+  }
+
+  .page-header h1 {
+    font-size: 2rem;
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 1rem;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.gallery-item {
+  animation: fadeIn 0.4s ease-out backwards;
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-container">
+    <a href="index.html" class="logo">
+      <i class="fas fa-hands-helping"></i>
+      <span>Shree Bhoomika Social Service Trust (R)</span>
+    </a>
+    <nav id="mainNav">
+      <a href="index.html">Home</a>
+      <a href="about-us.html">About</a>
+      <a href="trustees.html">Trustees</a>
+      <a href="legal.html">Legal</a>
+      <a href="objectives.html">Objectives</a>
+      <a href="activities.html">Activities</a>
+      <a href="gallery.html" class="active">Gallery</a>
+      <a href="contact-us.html">Contact</a>
+    </nav>
+    <button class="mobile-menu-btn" id="menuBtn">
+      <i class="fas fa-bars"></i>
+    </button>
+  </div>
+</header>
+
+<div class="page-header">
+  <h1>Photo Gallery</h1>
+  <p>Visual stories of our impact - health camps, education programs, and community development</p>
+  <nav class="breadcrumb">
+    <a href="index.html">Home</a>
+    <i class="fas fa-chevron-right"></i>
+    <span>Gallery</span>
+  </nav>
+</div>
+
+<main>
+  <div class="section-intro">
+    <h2>Our Work in Pictures</h2>
+    <p>Browse through our collection showcasing medical camps, educational initiatives, and the positive impact we're creating across Karnataka.</p>
+  </div>
+
+  <div class="gallery-stats">
+    <div class="stat-item">
+      <div class="stat-number">90+</div>
+      <div class="stat-label">Photos</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">100+</div>
+      <div class="stat-label">Events</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">50+</div>
+      <div class="stat-label">Communities</div>
+    </div>
+  </div>
+
+  <div class="gallery-grid" id="galleryGrid"></div>
+
+  <div class="load-more" id="loadMoreSection" style="display: none;">
+    <button class="load-more-btn" id="loadMoreBtn">
+      <span>Load More Photos</span>
+      <i class="fas fa-chevron-down"></i>
+    </button>
+  </div>
+</main>
+
+<div class="lightbox" id="lightbox">
+  <div class="lightbox-content">
+    <button class="lightbox-close" id="closeLightbox">
+      <i class="fas fa-times"></i>
+    </button>
+    <button class="lightbox-nav lightbox-prev" id="prevPhoto">
+      <i class="fas fa-chevron-left"></i>
+    </button>
+    <img id="lightboxImg" src="" alt="">
+    <button class="lightbox-nav lightbox-next" id="nextPhoto">
+      <i class="fas fa-chevron-right"></i>
+    </button>
+    <div class="lightbox-counter" id="lightboxCounter"></div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-content">
+    <div class="footer-section">
+      <h3>About Us</h3>
+      <p>Shree Bhoomika Social Service Trust (R) provides comprehensive care and support for senior citizens and underprivileged communities across Karnataka.</p>
+      <div class="social-links">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+    </div>
+    
+    <div class="footer-section">
+      <h3>Quick Links</h3>
+      <ul class="footer-links">
+        <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+        <li><a href="about-us.html"><i class="fas fa-chevron-right"></i> About Us</a></li>
+        <li><a href="trustees.html"><i class="fas fa-chevron-right"></i> Trustees</a></li>
+        <li><a href="activities.html"><i class="fas fa-chevron-right"></i> Activities</a></li>
+      </ul>
+    </div>
+    
+    <div class="footer-section">
+      <h3>Contact Info</h3>
+      <ul class="footer-links">
+        <li><a href="mailto:info@sbsst.org"><i class="fas fa-envelope"></i> info@sbsst.org</a></li>
+        <li><a href="tel:+910000000000"><i class="fas fa-phone"></i> +91-0000000000</a></li>
+        <li><i class="fas fa-map-marker-alt"></i> Bangalore, Karnataka</li>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="footer-bottom">
+    <p>&copy; 2024 Shree Bhoomika Social Service Trust (R). All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+// Generate gallery images with placeholder images
+const galleryImages = [];
+
+// Add images 1-25 with 'IMG' prefix
+for (let i = 1; i <= 25; i++) {
+  galleryImages.push({
+    thumb: `https://picsum.photos/200/200?random=${i}`,
+    full: `https://picsum.photos/800/800?random=${i}`,
+    alt: `Sri Bhoomika Activity Photo ${i}`
+  });
+}
+
+// Add images 27-90
+for (let i = 27; i <= 90; i++) {
+  galleryImages.push({
+    thumb: `https://picsum.photos/200/200?random=${i}`,
+    full: `https://picsum.photos/800/800?random=${i}`,
+    alt: `Sri Bhoomika Activity Photo ${i}`
+  });
+}
+
+const galleryGrid = document.getElementById('galleryGrid');
+let currentIndex = 0;
+let itemsToShow = 24;
+
+function loadGalleryItems() {
+  const fragment = document.createDocumentFragment();
+  const endIndex = Math.min(itemsToShow, galleryImages.length);
+  
+  for (let i = currentIndex; i < endIndex; i++) {
+    const item = document.createElement('div');
+    item.className = 'gallery-item';
+    item.style.animationDelay = `${(i % 6) * 0.05}s`;
+    item.innerHTML = `
+      <img src="${galleryImages[i].thumb}" alt="${galleryImages[i].alt}" loading="lazy">
+      <div class="gallery-overlay">
+        <i class="fas fa-search-plus"></i>
+      </div>
+    `;
+    item.addEventListener('click', () => openLightbox(i));
+    fragment.appendChild(item);
+  }
+  
+  galleryGrid.appendChild(fragment);
+  currentIndex = endIndex;
+  
+  const loadMoreSection = document.getElementById('loadMoreSection');
+  if (currentIndex < galleryImages.length) {
+    loadMoreSection.style.display = 'block';
+  } else {
+    loadMoreSection.style.display = 'none';
+  }
+}
+
+loadGalleryItems();
+
+document.getElementById('loadMoreBtn').addEventListener('click', () => {
+  itemsToShow += 24;
+  loadGalleryItems();
+});
+
+// Lightbox functionality
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightboxImg');
+const closeLightbox = document.getElementById('closeLightbox');
+const prevPhoto = document.getElementById('prevPhoto');
+const nextPhoto = document.getElementById('nextPhoto');
+const lightboxCounter = document.getElementById('lightboxCounter');
+let currentPhotoIndex = 0;
+
+function openLightbox(index) {
+  currentPhotoIndex = index;
+  updateLightbox();
+  lightbox.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function updateLightbox() {
+  lightboxImg.src = galleryImages[currentPhotoIndex].full;
+  lightboxImg.alt = galleryImages[currentPhotoIndex].alt;
+  lightboxCounter.textContent = `${currentPhotoIndex + 1} / ${galleryImages.length}`;
+}
+
+closeLightbox.addEventListener('click', () => {
+  lightbox.classList.remove('active');
+  document.body.style.overflow = '';
+});
+
+lightbox.addEventListener('click', (e) => {
+  if (e.target === lightbox) {
+    lightbox.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+});
+
+prevPhoto.addEventListener('click', () => {
+  currentPhotoIndex = (currentPhotoIndex - 1 + galleryImages.length) % galleryImages.length;
+  updateLightbox();
+});
+
+nextPhoto.addEventListener('click', () => {
+  currentPhotoIndex = (currentPhotoIndex + 1) % galleryImages.length;
+  updateLightbox();
+});
+
+// Keyboard navigation
+document.addEventListener('keydown', (e) => {
+  if (!lightbox.classList.contains('active')) return;
+  
+  if (e.key === 'ArrowLeft') {
+    prevPhoto.click();
+  } else if (e.key === 'ArrowRight') {
+    nextPhoto.click();
+  } else if (e.key === 'Escape') {
+    closeLightbox.click();
+  }
+});
+
+// Mobile menu toggle
+const menuBtn = document.getElementById('menuBtn');
+const mainNav = document.getElementById('mainNav');
+
+menuBtn.addEventListener('click', () => {
+  mainNav.classList.toggle('active');
+});
+</script>
+
+</body>
+</html>
