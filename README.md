@@ -18,15 +18,15 @@ The website helps visitors:
 
 ## 📄 Pages Included
 
-- `index.html` – Home  
-- `about-us.html` – About the Trust  
-- `trustees.html` – Trustees  
-- `legal.html` – Legal Documents  
-- `objectives.html` – Objectives  
-- `activities.html` – Activities  
-- `gallery.html` – Gallery  
-- `contact-us.html` – Contact Information  
-- `Donation.html` – Donation Page  
+- `index` – Home  
+- `about-us` – About the Trust  
+- `trustees` – Trustees  
+- `legal` – Legal Documents  
+- `objectives` – Objectives  
+- `activities` – Activities  
+- `gallery` – Gallery  
+- `contact-us` – Contact Information  
+- `Donation` – Donation Page  
 
 ---
 
