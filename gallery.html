@@ -481,19 +481,19 @@ footer {
 
 <header>
   <div class="header-container">
-    <a href="index" class="logo">
+    <a href="index.html" class="logo">
       <i class="fas fa-hands-helping"></i>
       <span>Shree Bhoomika Social Service Trust (R)</span>
     </a>
     <nav id="mainNav">
-      <a href="/">Home</a>
-      <a href="about-us">About</a>
-      <a href="trustees">Trustees</a>
-      <a href="legal">Legal</a>
-      <a href="objectives">Objectives</a>
-      <a href="activities">Activities</a>
-      <a href="gallery" class="active">Gallery</a>
-      <a href="contact-us">Contact</a>
+      <a href="index.html">Home</a>
+      <a href="about-us.html">About</a>
+      <a href="trustees.html">Trustees</a>
+      <a href="legal.html">Legal</a>
+      <a href="objectives.html">Objectives</a>
+      <a href="activities.html">Activities</a>
+      <a href="gallery.html" class="active">Gallery</a>
+      <a href="contact-us.html">Contact</a>
     </nav>
     <button class="mobile-menu-btn" id="menuBtn">
       <i class="fas fa-bars"></i>
@@ -505,7 +505,7 @@ footer {
   <h1>Photo Gallery</h1>
   <p>Visual stories of our impact - health camps, education programs, and community development</p>
   <nav class="breadcrumb">
-    <a href="/">Home</a>
+    <a href="index.html">Home</a>
     <i class="fas fa-chevron-right"></i>
     <span>Gallery</span>
   </nav>
@@ -574,46 +574,41 @@ footer {
     <div class="footer-section">
       <h3>Quick Links</h3>
       <ul class="footer-links">
-        <li><a href="/"><i class="fas fa-chevron-right"></i> Home</a></li>
-        <li><a href="about-us"><i class="fas fa-chevron-right"></i> About Us</a></li>
-        <li><a href="trustees"><i class="fas fa-chevron-right"></i> Trustees</a></li>
-        <li><a href="activities"><i class="fas fa-chevron-right"></i> Activities</a></li>
+        <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+        <li><a href="about-us.html"><i class="fas fa-chevron-right"></i> About Us</a></li>
+        <li><a href="trustees.html"><i class="fas fa-chevron-right"></i> Trustees</a></li>
+        <li><a href="activities.html"><i class="fas fa-chevron-right"></i> Activities</a></li>
       </ul>
     </div>
     
     <div class="footer-section">
       <h3>Contact Info</h3>
-      <ul class="footer-links">
-        <li><a href="mailto:sribhoomikasocialservicetrust@gmail.com"><i class="fas fa-envelope"></i>  sribhoomikasocialservicetrust@gmail.com</a></li>
-        <li><a href="tel:+919902282199"><i class="fas fa-phone"></i> +91-0000000000</a></li>
-        <li><i class="fas fa-map-marker-alt"></i> Bangalore, Karnataka</li>
+       <ul class="footer-links">
+        <li><a href="mailto:sribhoomikasocialservicetrust@gmail.com"><i class="fas fa-envelope"></i> Email Us</a></li>
+        <li><a href="tel:+918032219105"><i class="fas fa-phone"></i> +91-80-32219105</a></li>
+        <li><a href="tel:+919902282199"><i class="fas fa-mobile-alt"></i> +91-9902282199</a></li>
+        <li><i class="fas fa-map-marker-alt"></i> Skandha Nagar,
+(New Extension), Kodigehalli,
+Near Subramanya Temple,
+Yeshwanthpur Hobli,
+Bangalore - 560 091.</li>
       </ul>
     </div>
   </div>
   
   <div class="footer-bottom">
-    <p>&copy; 2024 Shree Bhoomika Social Service Trust (R). All rights reserved.</p>
-  </div>
+<p>&copy; 2025 Shree Bhoomika Social Service Trust (R). All rights reserved. | Developed with <i class="fas fa-heart" aria-hidden="true"></i> for a better community</p>  </div>
 </footer>
 
 <script>
 // Generate gallery images with placeholder images
 const galleryImages = [];
+const totalImages = 89; // Adjust to your total number of images
 
-// Add images 1-25 with 'IMG' prefix
-for (let i = 1; i <= 25; i++) {
+for (let i = 1; i <= totalImages; i++) {
   galleryImages.push({
-    thumb: `https://picsum.photos/200/200?random=${i}`,
-    full: `https://picsum.photos/800/800?random=${i}`,
-    alt: `Sri Bhoomika Activity Photo ${i}`
-  });
-}
-
-// Add images 27-90
-for (let i = 27; i <= 90; i++) {
-  galleryImages.push({
-    thumb: `https://picsum.photos/200/200?random=${i}`,
-    full: `https://picsum.photos/800/800?random=${i}`,
+    thumb: `images/gallery/image_${i}.jpg`, // thumbnail or main image
+    full: `images/gallery/image_${i}.jpg`,  // full image for lightbox
     alt: `Sri Bhoomika Activity Photo ${i}`
   });
 }
@@ -621,6 +616,31 @@ for (let i = 27; i <= 90; i++) {
 const galleryGrid = document.getElementById('galleryGrid');
 let currentIndex = 0;
 let itemsToShow = 24;
+
+function loadGalleryItems() {
+  const fragment = document.createDocumentFragment();
+  const endIndex = Math.min(currentIndex + itemsToShow, galleryImages.length);
+
+  for (let i = currentIndex; i < endIndex; i++) {
+    const item = document.createElement('div');
+    item.className = 'gallery-item';
+    item.style.animationDelay = `${(i % 6) * 0.05}s`;
+    item.innerHTML = `
+      <img src="${galleryImages[i].thumb}" alt="${galleryImages[i].alt}" loading="lazy">
+      <div class="gallery-overlay">
+        <i class="fas fa-search-plus"></i>
+      </div>
+    `;
+    item.addEventListener('click', () => openLightbox(i));
+    fragment.appendChild(item);
+  }
+
+  galleryGrid.appendChild(fragment);
+  currentIndex = endIndex;
+
+  const loadMoreSection = document.getElementById('loadMoreSection');
+  loadMoreSection.style.display = currentIndex < galleryImages.length ? 'block' : 'none';
+}
 
 function loadGalleryItems() {
   const fragment = document.createDocumentFragment();

@@ -610,19 +610,19 @@ footer {
 
 <header role="banner">
   <div class="header-container">
-    <a href="index" class="logo" aria-label="Shree Bhoomika Social Service Trust (R) Home">
+    <a href="index.html" class="logo" aria-label="Shree Bhoomika Social Service Trust (R) Home">
       <i class="fas fa-hands-helping" aria-hidden="true"></i>
       <span>Shree Bhoomika Social Service Trust (R)</span>
     </a>
     <nav id="mainNav" role="navigation" aria-label="Main navigation">
-      <a href="/">Home</a>
-      <a href="about-us">About</a>
-      <a href="trustees">Trustees</a>
-      <a href="legal" class="active" aria-current="page">Legal</a>
-      <a href="objectives">Objectives</a>
-      <a href="activities">Activities</a>
-      <a href="gallery">Gallery</a>
-      <a href="contact-us">Contact</a>
+      <a href="index.html">Home</a>
+      <a href="about-us.html">About</a>
+      <a href="trustees.html">Trustees</a>
+      <a href="legal.html" class="active" aria-current="page">Legal</a>
+      <a href="objectives.html">Objectives</a>
+      <a href="activities.html">Activities</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="contact-us.html">Contact</a>
     </nav>
     <button class="mobile-menu-btn" id="menuBtn" aria-label="Toggle mobile menu" aria-expanded="false">
       <i class="fas fa-bars" aria-hidden="true"></i>
@@ -634,7 +634,7 @@ footer {
   <h1>Legal Documents & Registration</h1>
   <p>Official trust registration documents, certificates, and legal compliance records demonstrating our transparency and accountability</p>
   <nav class="breadcrumb" aria-label="Breadcrumb">
-    <a href="/">Home</a>
+    <a href="index.html">Home</a>
     <i class="fas fa-chevron-right" aria-hidden="true"></i>
     <span aria-current="page">Legal</span>
   </nav>
@@ -707,29 +707,34 @@ footer {
     <div class="footer-section">
       <h3>Quick Links</h3>
       <ul class="footer-links">
-        <li><a href="index"><i class="fas fa-chevron-right" aria-hidden="true"></i> Home</a></li>
-        <li><a href="about-us"><i class="fas fa-chevron-right" aria-hidden="true"></i> About Us</a></li>
-        <li><a href="trustees"><i class="fas fa-chevron-right" aria-hidden="true"></i> Trustees</a></li>
-        <li><a href="legal"><i class="fas fa-chevron-right" aria-hidden="true"></i> Legal</a></li>
-        <li><a href="objectives"><i class="fas fa-chevron-right" aria-hidden="true"></i> Objectives</a></li>
+        <li><a href="index.html"><i class="fas fa-chevron-right" aria-hidden="true"></i> Home</a></li>
+        <li><a href="about-us.html"><i class="fas fa-chevron-right" aria-hidden="true"></i> About Us</a></li>
+        <li><a href="trustees.html"><i class="fas fa-chevron-right" aria-hidden="true"></i> Trustees</a></li>
+        <li><a href="legal.html"><i class="fas fa-chevron-right" aria-hidden="true"></i> Legal</a></li>
+        <li><a href="objectives.html"><i class="fas fa-chevron-right" aria-hidden="true"></i> Objectives</a></li>
       </ul>
     </div>
     
     <div class="footer-section">
       <h3>Resources</h3>
       <ul class="footer-links">
-        <li><a href="activities"><i class="fas fa-chevron-right" aria-hidden="true"></i> Activities</a></li>
-        <li><a href="gallery"><i class="fas fa-chevron-right" aria-hidden="true"></i> Gallery</a></li>
-        <li><a href="contact-us"><i class="fas fa-chevron-right" aria-hidden="true"></i> Contact Us</a></li>
+        <li><a href="activities.html"><i class="fas fa-chevron-right" aria-hidden="true"></i> Activities</a></li>
+        <li><a href="gallery.html"><i class="fas fa-chevron-right" aria-hidden="true"></i> Gallery</a></li>
+        <li><a href="contact-us.html"><i class="fas fa-chevron-right" aria-hidden="true"></i> Contact Us</a></li>
       </ul>
     </div>
     
     <div class="footer-section">
       <h3>Contact Info</h3>
-      <ul class="footer-links">
-        <li><a href="mailto: sribhoomikasocialservicetrust@gmail.com"><i class="fas fa-envelope" aria-hidden="true"></i>  sribhoomikasocialservicetrust@gmail.com</a></li>
-        <li><a href="tel:+919902282199"><i class="fas fa-phone" aria-hidden="true"></i> +91-0000000000</a></li>
-        <li><i class="fas fa-map-marker-alt" aria-hidden="true"></i> Magadi Main Road, Pipeline, Gollarapalya, Bangalore - 560091</li>
+       <ul class="footer-links">
+        <li><a href="mailto:sribhoomikasocialservicetrust@gmail.com"><i class="fas fa-envelope"></i> Email Us</a></li>
+        <li><a href="tel:+918032219105"><i class="fas fa-phone"></i> +91-80-32219105</a></li>
+        <li><a href="tel:+919902282199"><i class="fas fa-mobile-alt"></i> +91-9902282199</a></li>
+        <li><i class="fas fa-map-marker-alt"></i> Skandha Nagar,
+(New Extension), Kodigehalli,
+Near Subramanya Temple,
+Yeshwanthpur Hobli,
+Bangalore - 560 091.</li>
       </ul>
     </div>
   </div>
@@ -744,8 +749,8 @@ footer {
 const documents = [];
 for (let i = 1; i <= 30; i++) {
   documents.push({
-    thumb: `images/creative_works/lea${i}.jpg`,
-    full: `images/creative_works/click/lea${i}.jpg`,
+    thumb: `images/legal_documentation_images/legal_documentation_images_${i}.jpg`,
+    full: `images/legal_documentation_images/legal_documentation_images_${i}.jpg`,
     alt: `Legal Document ${i}`
   });
 }
@@ -809,8 +814,7 @@ document.addEventListener('keydown', (e) => {
   if (!lightbox.classList.contains('active')) return;
   
   if (e.key === 'Escape') {
-    lightbox.classList.remove('active');
-    document.body.style.overflow = '';
+    closeLightbox.click();
   } else if (e.key === 'ArrowLeft') {
     prevDoc.click();
   } else if (e.key === 'ArrowRight') {
@@ -824,17 +828,11 @@ const mainNav = document.getElementById('mainNav');
 
 menuBtn.addEventListener('click', () => {
   mainNav.classList.toggle('active');
-  const isExpanded = mainNav.classList.contains('active');
-  menuBtn.setAttribute('aria-expanded', isExpanded);
+  menuBtn.setAttribute('aria-expanded', mainNav.classList.contains('active'));
   
   const icon = menuBtn.querySelector('i');
-  if (isExpanded) {
-    icon.classList.remove('fa-bars');
-    icon.classList.add('fa-times');
-  } else {
-    icon.classList.remove('fa-times');
-    icon.classList.add('fa-bars');
-  }
+  icon.classList.toggle('fa-bars');
+  icon.classList.toggle('fa-times');
 });
 
 document.addEventListener('click', (e) => {
@@ -842,8 +840,8 @@ document.addEventListener('click', (e) => {
     mainNav.classList.remove('active');
     menuBtn.setAttribute('aria-expanded', 'false');
     const icon = menuBtn.querySelector('i');
-    icon.classList.remove('fa-times');
     icon.classList.add('fa-bars');
+    icon.classList.remove('fa-times');
   }
 });
 
