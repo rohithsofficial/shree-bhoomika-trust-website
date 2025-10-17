@@ -1,61 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- Basic Meta Tags -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-<!-- SEO Meta Tags -->
 <title>Contact Us - Shree Bhoomika Social Service Trust (R) | Get in Touch</title>
 <meta name="description" content="Contact Shree Bhoomika Social Service Trust (R) for inquiries about our programs, volunteering opportunities, donations, or support services. Visit us in Bangalore, Karnataka.">
-<meta name="keywords" content="contact SBSST, NGO contact Bangalore, charitable trust address, volunteer inquiry, donation contact, social service trust Karnataka, elderly care contact, community service inquiry">
-<meta name="author" content="Shree Bhoomika Social Service Trust (R)">
-<meta name="robots" content="index, follow">
 
-<!-- Open Graph Meta Tags -->
-<meta property="og:title" content="Contact Us - Shree Bhoomika Social Service Trust (R)">
-<meta property="og:description" content="Get in touch with us for support services, volunteering, or donations. We're here to help.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://sbsst.org/contact-us">
-<meta property="og:site_name" content="Shree Bhoomika Social Service Trust (R)">
-
-<!-- Canonical URL -->
-<link rel="canonical" href="https://sbsst.org/contact-us">
-
-<!-- Structured Data -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "NGO",
-  "name": "Shree Bhoomika Social Service Trust (R)",
-  "url": "https://sbsst.org",
-  "logo": "https://sbsst.org/images/logo.png",
-  "contactPoint": {
-    "@type": "ContactPoint",
-    "telephone": "+91-80-32219105",
-    "contactType": "customer service",
-    "areaServed": "IN",
-    "availableLanguage": ["English", "Kannada", "Hindi"]
-  },
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "Skandha Nagar (New Extension), Kodigehalli, Near Subramanya Temple",
-    "addressLocality": "Bangalore",
-    "addressRegion": "Karnataka",
-    "postalCode": "560091",
-    "addressCountry": "IN"
-  },
-  "email": "sribhoomikasocialservicetrust@gmail.com",
-  "telephone": "+91-9902282199"
-}
-</script>
-
-<!-- Preconnect -->
 <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-<link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
-
-<!-- Font Awesome -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 <style>
@@ -68,6 +21,7 @@
 :root {
   --primary: #2563eb;
   --primary-dark: #1e40af;
+  --primary-light: #3b82f6;
   --secondary: #06b6d4;
   --accent: #f59e0b;
   --success: #10b981;
@@ -85,6 +39,7 @@ body {
   color: var(--text);
   background: var(--bg-light);
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
 
 /* Header */
@@ -110,18 +65,23 @@ header {
   align-items: center;
   gap: 0.75rem;
   color: white;
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   font-weight: 700;
   text-decoration: none;
+  transition: transform 0.3s ease;
+}
+
+.logo:hover {
+  transform: scale(1.05);
 }
 
 .logo i {
-  font-size: 2rem;
+  font-size: 1.75rem;
 }
 
 nav {
   display: flex;
-  gap: 2rem;
+  gap: 1.5rem;
 }
 
 nav a {
@@ -131,11 +91,27 @@ nav a {
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
   transition: all 0.3s ease;
+  position: relative;
+}
+
+nav a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: white;
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+nav a:hover::after, nav a.active::after {
+  width: 80%;
 }
 
 nav a:hover, nav a.active {
   background: rgba(255,255,255,0.2);
-  transform: translateY(-2px);
 }
 
 .mobile-menu-btn {
@@ -145,27 +121,65 @@ nav a:hover, nav a.active {
   color: white;
   font-size: 1.5rem;
   cursor: pointer;
+  transition: transform 0.3s ease;
 }
 
-/* Page Header */
+.mobile-menu-btn:hover {
+  transform: rotate(90deg);
+}
+
+/* Page Header with Particles */
 .page-header {
-  background: linear-gradient(135deg, rgba(37,99,235,0.95) 0%, rgba(30,64,175,0.95) 100%);
+  background: linear-gradient(135deg, rgba(37,99,235,0.95) 0%, rgba(30,64,175,0.95) 100%),
+              url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><defs><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><circle cx="20" cy="20" r="1" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="1200" height="600" fill="url(%23grid)"/></svg>');
   color: white;
-  padding: 4rem 2rem;
+  padding: 5rem 2rem;
   text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.page-header::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -10%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: float 6s ease-in-out infinite;
+}
+
+.page-header::after {
+  content: '';
+  position: absolute;
+  bottom: -50%;
+  left: -10%;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: float 8s ease-in-out infinite reverse;
 }
 
 .page-header h1 {
-  font-size: 3rem;
+  font-size: 3.5rem;
   font-weight: 800;
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
+  position: relative;
+  z-index: 1;
+  animation: fadeInDown 0.8s ease;
 }
 
 .page-header p {
-  font-size: 1.2rem;
+  font-size: 1.25rem;
   opacity: 0.95;
   max-width: 700px;
   margin: 0 auto;
+  position: relative;
+  z-index: 1;
+  animation: fadeInUp 0.8s ease 0.2s backwards;
 }
 
 .breadcrumb {
@@ -174,12 +188,20 @@ nav a:hover, nav a.active {
   justify-content: center;
   align-items: center;
   font-size: 1rem;
-  margin-top: 1rem;
+  margin-top: 1.5rem;
+  position: relative;
+  z-index: 1;
+  animation: fadeInUp 0.8s ease 0.4s backwards;
 }
 
 .breadcrumb a {
   color: white;
   text-decoration: none;
+  transition: opacity 0.3s ease;
+}
+
+.breadcrumb a:hover {
+  opacity: 0.8;
 }
 
 /* Main Content */
@@ -206,14 +228,32 @@ main {
 .info-card {
   background: white;
   padding: 2rem;
-  border-radius: 1rem;
+  border-radius: 1.25rem;
   box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.info-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  transform: scaleX(0);
+  transition: transform 0.4s ease;
+}
+
+.info-card:hover::before {
+  transform: scaleX(1);
 }
 
 .info-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+  transform: translateY(-8px);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.15);
 }
 
 .info-card-header {
@@ -232,7 +272,13 @@ main {
   justify-content: center;
   font-size: 1.5rem;
   color: white;
-  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  background: linear-gradient(135deg, var(--primary), var(--primary-light));
+  box-shadow: 0 4px 12px rgba(37,99,235,0.3);
+  transition: transform 0.3s ease;
+}
+
+.info-card:hover .info-icon {
+  transform: rotate(360deg);
 }
 
 .info-card-header h3 {
@@ -243,7 +289,7 @@ main {
 .info-details {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 1rem;
 }
 
 .info-item {
@@ -252,6 +298,14 @@ main {
   gap: 0.75rem;
   color: var(--text-light);
   line-height: 1.8;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.info-item:hover {
+  background: var(--bg-light);
+  transform: translateX(5px);
 }
 
 .info-item i {
@@ -270,38 +324,133 @@ main {
   color: var(--primary);
 }
 
-/* Map */
+/* Enhanced Map Container */
 .map-container {
   background: white;
-  padding: 1.5rem;
-  border-radius: 1rem;
+  padding: 0;
+  border-radius: 1.25rem;
   box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-  height: 400px;
+  overflow: hidden;
+  transition: all 0.4s ease;
+}
+
+.map-container:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.15);
+}
+
+.map-header {
+  padding: 1.5rem;
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.map-header h3 {
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0;
+}
+
+.map-actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.map-btn {
+  padding: 0.5rem 1rem;
+  background: rgba(255,255,255,0.2);
+  color: white;
+  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.map-btn:hover {
+  background: rgba(255,255,255,0.3);
+  transform: translateY(-2px);
 }
 
 .map-container iframe {
   width: 100%;
-  height: 100%;
+  height: 350px;
   border: none;
-  border-radius: 0.5rem;
+  display: block;
+}
+
+.map-footer {
+  padding: 1rem 1.5rem;
+  background: var(--bg-light);
+  border-top: 1px solid var(--border);
+}
+
+.coordinates {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-light);
+  font-size: 0.9rem;
+}
+
+.coordinates i {
+  color: var(--primary);
 }
 
 /* Contact Form */
 .contact-form {
   background: white;
   padding: 2.5rem;
-  border-radius: 1rem;
+  border-radius: 1.25rem;
   box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-form::before {
+  content: '';
+  position: absolute;
+  top: -100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, transparent, rgba(37,99,235,0.03));
+  transition: top 0.5s ease;
+}
+
+.contact-form:hover::before {
+  top: 0;
 }
 
 .form-header {
   margin-bottom: 2rem;
+  position: relative;
+  z-index: 1;
 }
 
 .form-header h2 {
   font-size: 2rem;
   color: var(--text);
   margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.form-header h2 i {
+  color: var(--primary);
 }
 
 .form-header p {
@@ -310,6 +459,8 @@ main {
 
 .form-group {
   margin-bottom: 1.5rem;
+  position: relative;
+  z-index: 1;
 }
 
 .form-group label {
@@ -317,6 +468,14 @@ main {
   font-weight: 600;
   color: var(--text);
   margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.form-group label i {
+  color: var(--primary);
+  font-size: 0.9rem;
 }
 
 .form-group label span {
@@ -327,20 +486,23 @@ main {
   width: 100%;
   padding: 0.875rem 1rem;
   border: 2px solid var(--border);
-  border-radius: 0.5rem;
+  border-radius: 0.75rem;
   font-size: 1rem;
   transition: all 0.3s ease;
   font-family: inherit;
+  background: white;
 }
 
 .form-control:focus {
   outline: none;
   border-color: var(--primary);
-  box-shadow: 0 0 0 3px rgba(37,99,235,0.1);
+  box-shadow: 0 0 0 4px rgba(37,99,235,0.1);
+  transform: translateY(-2px);
 }
 
 .form-control.error {
   border-color: var(--error);
+  animation: shake 0.5s ease;
 }
 
 .error-message {
@@ -348,6 +510,7 @@ main {
   font-size: 0.875rem;
   margin-top: 0.5rem;
   display: none;
+  animation: fadeIn 0.3s ease;
 }
 
 textarea.form-control {
@@ -357,11 +520,11 @@ textarea.form-control {
 
 .submit-btn {
   width: 100%;
-  padding: 1rem 2rem;
+  padding: 1.125rem 2rem;
   background: linear-gradient(135deg, var(--primary), var(--primary-dark));
   color: white;
   border: none;
-  border-radius: 0.5rem;
+  border-radius: 0.75rem;
   font-size: 1.1rem;
   font-weight: 600;
   cursor: pointer;
@@ -370,11 +533,35 @@ textarea.form-control {
   align-items: center;
   justify-content: center;
   gap: 0.75rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.submit-btn::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255,255,255,0.2);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.6s ease, height 0.6s ease;
+}
+
+.submit-btn:hover::before {
+  width: 300px;
+  height: 300px;
 }
 
 .submit-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(37,99,235,0.3);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(37,99,235,0.4);
+}
+
+.submit-btn:active {
+  transform: translateY(-1px);
 }
 
 .submit-btn:disabled {
@@ -382,84 +569,154 @@ textarea.form-control {
   cursor: not-allowed;
 }
 
-/* Success Message */
-.success-message {
+.submit-btn span {
+  position: relative;
+  z-index: 1;
+}
+
+.submit-btn i {
+  position: relative;
+  z-index: 1;
+}
+
+/* Success & Error Messages */
+.success-message, .error-alert {
   display: none;
-  background: var(--success);
-  color: white;
-  padding: 1rem;
-  border-radius: 0.5rem;
+  padding: 1rem 1.25rem;
+  border-radius: 0.75rem;
   margin-bottom: 1.5rem;
   align-items: center;
   gap: 0.75rem;
+  animation: slideDown 0.4s ease;
 }
 
-.success-message.show {
+.success-message {
+  background: linear-gradient(135deg, var(--success), #059669);
+  color: white;
+  box-shadow: 0 4px 12px rgba(16,185,129,0.3);
+}
+
+.error-alert {
+  background: linear-gradient(135deg, var(--error), #dc2626);
+  color: white;
+  box-shadow: 0 4px 12px rgba(239,68,68,0.3);
+}
+
+.success-message.show, .error-alert.show {
   display: flex;
 }
 
 /* Quick Contact Cards */
 .quick-contact {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 2rem;
-  margin-top: 3rem;
+  margin-top: 4rem;
 }
 
 .quick-contact-card {
   background: white;
-  padding: 2rem;
-  border-radius: 1rem;
+  padding: 2.5rem 2rem;
+  border-radius: 1.25rem;
   box-shadow: 0 4px 12px rgba(0,0,0,0.08);
   text-align: center;
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.quick-contact-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(37,99,235,0.05), transparent);
+  transition: left 0.6s ease;
+}
+
+.quick-contact-card:hover::before {
+  left: 100%;
 }
 
 .quick-contact-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+  transform: translateY(-10px);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.15);
 }
 
 .quick-icon {
-  width: 80px;
-  height: 80px;
+  width: 90px;
+  height: 90px;
   margin: 0 auto 1.5rem;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 2rem;
+  font-size: 2.25rem;
   color: white;
   background: linear-gradient(135deg, var(--primary), var(--secondary));
+  box-shadow: 0 8px 20px rgba(37,99,235,0.3);
+  transition: transform 0.5s ease;
+}
+
+.quick-contact-card:hover .quick-icon {
+  transform: scale(1.1) rotate(10deg);
 }
 
 .quick-contact-card h3 {
-  font-size: 1.3rem;
+  font-size: 1.4rem;
   color: var(--text);
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.75rem;
 }
 
 .quick-contact-card p {
   color: var(--text-light);
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
 }
 
 .quick-btn {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.75rem 1.5rem;
+  padding: 0.875rem 1.75rem;
   background: var(--primary);
   color: white;
   text-decoration: none;
-  border-radius: 0.5rem;
+  border-radius: 0.75rem;
   font-weight: 600;
   transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.quick-btn::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: var(--primary-dark);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.5s ease, height 0.5s ease;
+}
+
+.quick-btn:hover::after {
+  width: 300px;
+  height: 300px;
 }
 
 .quick-btn:hover {
-  background: var(--primary-dark);
   transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(37,99,235,0.4);
+}
+
+.quick-btn span, .quick-btn i {
+  position: relative;
+  z-index: 1;
 }
 
 /* Footer */
@@ -467,7 +724,18 @@ footer {
   background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
   color: white;
   padding: 4rem 2rem 2rem;
-  margin-top: 4rem;
+  margin-top: 5rem;
+  position: relative;
+}
+
+footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
 }
 
 .footer-content {
@@ -481,8 +749,20 @@ footer {
 
 .footer-section h3 {
   font-size: 1.3rem;
-  margin-bottom: 1rem;
+  margin-bottom: 1.25rem;
   color: var(--accent);
+  position: relative;
+  padding-bottom: 0.75rem;
+}
+
+.footer-section h3::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 50px;
+  height: 3px;
+  background: var(--accent);
 }
 
 .footer-section p {
@@ -509,18 +789,18 @@ footer {
 
 .footer-links a:hover {
   color: var(--accent);
-  transform: translateX(4px);
+  transform: translateX(5px);
 }
 
 .social-links {
   display: flex;
   gap: 1rem;
-  margin-top: 1rem;
+  margin-top: 1.5rem;
 }
 
 .social-links a {
-  width: 40px;
-  height: 40px;
+  width: 45px;
+  height: 45px;
   border-radius: 50%;
   background: rgba(255,255,255,0.1);
   display: flex;
@@ -528,11 +808,13 @@ footer {
   justify-content: center;
   color: white;
   transition: all 0.3s ease;
+  border: 2px solid transparent;
 }
 
 .social-links a:hover {
   background: var(--accent);
-  transform: translateY(-4px);
+  transform: translateY(-5px) rotate(360deg);
+  border-color: white;
 }
 
 .footer-bottom {
@@ -549,6 +831,10 @@ footer {
   .contact-container {
     grid-template-columns: 1fr;
   }
+  
+  .page-header h1 {
+    font-size: 2.5rem;
+  }
 }
 
 @media (max-width: 768px) {
@@ -561,6 +847,7 @@ footer {
     flex-direction: column;
     padding: 2rem;
     transition: left 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
   }
 
   nav.active {
@@ -574,13 +861,47 @@ footer {
   .page-header h1 {
     font-size: 2rem;
   }
+  
+  .page-header p {
+    font-size: 1.1rem;
+  }
 
   .contact-form {
     padding: 1.5rem;
   }
+  
+  .form-header h2 {
+    font-size: 1.5rem;
+  }
 
   .quick-contact {
     grid-template-columns: 1fr;
+  }
+  
+  .map-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .map-actions {
+    width: 100%;
+  }
+  
+  .map-btn {
+    flex: 1;
+    justify-content: center;
+  }
+  
+  .header-container {
+    padding: 1rem 1.5rem;
+  }
+  
+  .logo {
+    font-size: 1rem;
+  }
+  
+  .logo i {
+    font-size: 1.5rem;
   }
 }
 
@@ -596,18 +917,72 @@ footer {
   .info-card {
     padding: 1.5rem;
   }
+  
+  .contact-form {
+    padding: 1.25rem;
+  }
+  
+  .quick-contact-card {
+    padding: 2rem 1.5rem;
+  }
+  
+  .map-actions {
+    flex-direction: column;
+  }
+  
+  .map-btn {
+    width: 100%;
+  }
 }
 
 /* Animations */
 @keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(30px);
   }
   to {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-10px); }
+  75% { transform: translateX(10px); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(5deg); }
 }
 
 .info-card, .contact-form, .quick-contact-card {
@@ -616,6 +991,7 @@ footer {
 
 .info-card:nth-child(1) { animation-delay: 0.1s; }
 .info-card:nth-child(2) { animation-delay: 0.2s; }
+.info-card:nth-child(3) { animation-delay: 0.3s; }
 .contact-form { animation-delay: 0.15s; }
 .quick-contact-card:nth-child(1) { animation-delay: 0.1s; }
 .quick-contact-card:nth-child(2) { animation-delay: 0.2s; }
@@ -634,11 +1010,12 @@ footer {
       <a href="index.html">Home</a>
       <a href="about-us.html">About</a>
       <a href="trustees.html">Trustees</a>
-      <a href="legal.html">Legal</a>
+       <a href="legal.html">Legal</a>
       <a href="objectives.html">Objectives</a>
       <a href="activities.html">Activities</a>
       <a href="gallery.html">Gallery</a>
-      <a href="contact-us.html" class="active">Contact</a>
+      <a href="Donation.html" >Donate</a>
+      <a href="contact-us.html" class="active" aria-current="page">Contact</a>
     </nav>
     <button class="mobile-menu-btn" id="menuBtn">
       <i class="fas fa-bars"></i>
@@ -662,12 +1039,6 @@ footer {
     <div class="contact-info">
       <div class="info-card">
         <div class="info-card-header">
-          <div class="info-icon">
-            <i class="fas fa-map-marker-alt"></i>
-          </div>
-          <h3>Visit Our Ashrama</h3>
-        </div>
-        <div class="info-details">
           <div class="info-item">
             <i class="fas fa-location-dot"></i>
             <span>Skandha Nagar (New Extension), Kodigehalli<br>
@@ -706,19 +1077,37 @@ footer {
       </div>
 
       <div class="map-container">
+        <div class="map-header">
+          <h3><i class="fas fa-map-marked-alt"></i> Find Us on Map</h3>
+          <div class="map-actions">
+            <button class="map-btn" id="getDirectionsBtn">
+              <i class="fas fa-directions"></i> Directions
+            </button>
+            <button class="map-btn" id="openInMapsBtn">
+              <i class="fas fa-external-link-alt"></i> Open Maps
+            </button>
+          </div>
+        </div>
         <iframe 
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3886.8419!2d77.5574!3d13.0481!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTPCsDAyJzUzLjIiTiA3N8KwMzMnMjYuNiJF!5e0!3m2!1sen!2sin!4v1234567890"
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
-          title="Shree Bhoomika Social Service Trust (R) Location">
+          id="mapFrame"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.832939531941!2d77.4582475!3d12.982534799999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae3bed50909617%3A0xbcafb87326395f4!2sShree%20Bhoomika%20Social%20Service%20Trust!5e0!3m2!1sen!2sin!4v1760681382582!5m2!1sen!2sin" 
+          allowfullscreen="" 
+          loading="lazy" 
+          referrerpolicy="no-referrer-when-downgrade">
         </iframe>
+        <div class="map-footer">
+          <div class="coordinates">
+            <i class="fas fa-map-pin"></i>
+            <span>Coordinates: 12.9825°N, 77.4582°E</span>
+          </div>
+        </div>
       </div>
     </div>
 
     <!-- Contact Form -->
     <div class="contact-form">
       <div class="form-header">
-        <h2>Send Us a Message</h2>
+        <h2><i class="fas fa-paper-plane"></i> Send Us a Message</h2>
         <p>Fill out the form below and we'll get back to you as soon as possible</p>
       </div>
 
@@ -727,9 +1116,17 @@ footer {
         <span>Thank you! Your message has been sent successfully.</span>
       </div>
 
+      <div class="error-alert" id="errorAlert">
+        <i class="fas fa-exclamation-circle"></i>
+        <span id="errorText">Something went wrong. Please try again.</span>
+      </div>
+
       <form id="contactForm">
         <div class="form-group">
-          <label for="name">Your Name <span>*</span></label>
+          <label for="name">
+            <i class="fas fa-user"></i>
+            Your Name <span>*</span>
+          </label>
           <input 
             type="text" 
             id="name" 
@@ -741,7 +1138,10 @@ footer {
         </div>
 
         <div class="form-group">
-          <label for="email">Your Email <span>*</span></label>
+          <label for="email">
+            <i class="fas fa-envelope"></i>
+            Your Email <span>*</span>
+          </label>
           <input 
             type="email" 
             id="email" 
@@ -753,7 +1153,10 @@ footer {
         </div>
 
         <div class="form-group">
-          <label for="phone">Your Phone <span>*</span></label>
+          <label for="phone">
+            <i class="fas fa-phone"></i>
+            Your Phone <span>*</span>
+          </label>
           <input 
             type="tel" 
             id="phone" 
@@ -765,7 +1168,10 @@ footer {
         </div>
 
         <div class="form-group">
-          <label for="subject">Subject</label>
+          <label for="subject">
+            <i class="fas fa-tag"></i>
+            Subject
+          </label>
           <input 
             type="text" 
             id="subject" 
@@ -775,7 +1181,10 @@ footer {
         </div>
 
         <div class="form-group">
-          <label for="message">Your Message <span>*</span></label>
+          <label for="message">
+            <i class="fas fa-comment-dots"></i>
+            Your Message <span>*</span>
+          </label>
           <textarea 
             id="message" 
             name="message" 
@@ -813,7 +1222,7 @@ footer {
       </div>
       <h3>Make a Donation</h3>
       <p>Support our cause and help those in need</p>
-      <a href="#" class="quick-btn">
+      <a href="Donation.html" class="quick-btn">
         <span>Donate Now</span>
         <i class="fas fa-arrow-right"></i>
       </a>
@@ -839,10 +1248,10 @@ footer {
       <h3>About Us</h3>
       <p>Shree Bhoomika Social Service Trust (R) provides comprehensive care and support for senior citizens and underprivileged communities across Karnataka.</p>
       <div class="social-links">
-        <a href="#"><i class="fab fa-facebook-f"></i></a>
-        <a href="#"><i class="fab fa-twitter"></i></a>
-        <a href="#"><i class="fab fa-instagram"></i></a>
-        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
       </div>
     </div>
     
@@ -859,20 +1268,17 @@ footer {
     <div class="footer-section">
       <h3>Contact Info</h3>
       <ul class="footer-links">
-        <li><a href="mailto:sribhoomikasocialservicetrust@gmail.com"><i class="fas fa-envelope"></i> Email Us</a></li>
+        <li><a href="mailto:smoolyarohith@gmail.com"><i class="fas fa-envelope"></i> Email Us</a></li>
         <li><a href="tel:+918032219105"><i class="fas fa-phone"></i> +91-80-32219105</a></li>
         <li><a href="tel:+919902282199"><i class="fas fa-mobile-alt"></i> +91-9902282199</a></li>
-        <li><i class="fas fa-map-marker-alt"></i> Skandha Nagar,
-(New Extension), Kodigehalli,
-Near Subramanya Temple,
-Yeshwanthpur Hobli,
-Bangalore - 560 091.</li>
+        <li><i class="fas fa-map-marker-alt"></i> Skandha Nagar, Kodigehalli, Bangalore - 560 091</li>
       </ul>
     </div>
   </div>
   
   <div class="footer-bottom">
-<p>&copy; 2025 Shree Bhoomika Social Service Trust (R). All rights reserved. | Developed with <i class="fas fa-heart" aria-hidden="true"></i> for a better community</p>  </div>
+    <p>&copy; 2025 Shree Bhoomika Social Service Trust (R). All rights reserved. | Developed with <i class="fas fa-heart"></i> for a better community</p>
+  </div>
 </footer>
 
 <script>
@@ -882,12 +1288,35 @@ const mainNav = document.getElementById('mainNav');
 
 menuBtn.addEventListener('click', () => {
   mainNav.classList.toggle('active');
+  const icon = menuBtn.querySelector('i');
+  icon.classList.toggle('fa-bars');
+  icon.classList.toggle('fa-times');
+});
+
+// Close menu when clicking outside
+document.addEventListener('click', (e) => {
+  if (!mainNav.contains(e.target) && !menuBtn.contains(e.target)) {
+    mainNav.classList.remove('active');
+    const icon = menuBtn.querySelector('i');
+    icon.classList.remove('fa-times');
+    icon.classList.add('fa-bars');
+  }
+});
+
+// Map buttons functionality
+document.getElementById('getDirectionsBtn').addEventListener('click', () => {
+  window.open('https://www.google.com/maps/dir/?api=1&destination=12.9825348,77.4582475', '_blank');
+});
+
+document.getElementById('openInMapsBtn').addEventListener('click', () => {
+  window.open('https://www.google.com/maps/place/Shree+Bhoomika+Social+Service+Trust/@12.9825348,77.4582475,17z', '_blank');
 });
 
 // Form validation and submission
 const contactForm = document.getElementById('contactForm');
 const submitBtn = document.getElementById('submitBtn');
 const successMessage = document.getElementById('successMessage');
+const errorAlert = document.getElementById('errorAlert');
 
 // Email validation regex
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -935,16 +1364,27 @@ function validateField(field) {
   const field = document.getElementById(fieldName);
   if (field) {
     field.addEventListener('blur', () => validateField(field));
+    field.addEventListener('input', () => {
+      if (field.classList.contains('error')) {
+        validateField(field);
+      }
+    });
   }
 });
 
-contactForm.addEventListener('submit', (e) => {
+// Form submission with multiple email sending options
+contactForm.addEventListener('submit', async (e) => {
   e.preventDefault();
+
+  // Hide any previous messages
+  successMessage.classList.remove('show');
+  errorAlert.classList.remove('show');
 
   // Validate all fields
   const name = document.getElementById('name');
   const email = document.getElementById('email');
   const phone = document.getElementById('phone');
+  const subject = document.getElementById('subject');
   const message = document.getElementById('message');
 
   const isNameValid = validateField(name);
@@ -957,26 +1397,101 @@ contactForm.addEventListener('submit', (e) => {
     submitBtn.disabled = true;
     submitBtn.innerHTML = '<span>Sending...</span><i class="fas fa-spinner fa-spin"></i>';
 
-    // Simulate form submission (replace with actual API call)
-    setTimeout(() => {
-      // Show success message
-      successMessage.classList.add('show');
-      
-      // Reset form
-      contactForm.reset();
-      
-      // Re-enable submit button
-      submitBtn.disabled = false;
-      submitBtn.innerHTML = '<span>Send Message</span><i class="fas fa-paper-plane"></i>';
+    // Collect form data
+    const formData = {
+      name: name.value.trim(),
+      email: email.value.trim(),
+      phone: phone.value.trim(),
+      subject: subject.value.trim() || 'General Inquiry',
+      message: message.value.trim()
+    };
 
-      // Hide success message after 5 seconds
+    // Method 1: Use mailto (most reliable without backend)
+    const mailtoLink = `mailto:smoolyarohith@gmail.com?subject=${encodeURIComponent('Contact Form: ' + formData.subject)}&body=${encodeURIComponent(
+      `Name: ${formData.name}\n` +
+      `Email: ${formData.email}\n` +
+      `Phone: ${formData.phone}\n` +
+      `Subject: ${formData.subject}\n\n` +
+      `Message:\n${formData.message}\n\n` +
+      `---\nSent from SBSST Contact Form`
+    )}`;
+
+    // Method 2: Try FormSubmit.co (free email service)
+    try {
+      const response = await fetch('https://formsubmit.co/ajax/smoolyarohith@gmail.com', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          subject: formData.subject,
+          message: formData.message,
+          _subject: 'New Contact Form Submission - SBSST',
+          _template: 'box',
+          _captcha: 'false'
+        })
+      });
+
+      if (response.ok) {
+        // Success via FormSubmit
+        successMessage.classList.add('show');
+        contactForm.reset();
+        
+        setTimeout(() => {
+          successMessage.classList.remove('show');
+        }, 5000);
+      } else {
+        throw new Error('FormSubmit failed');
+      }
+    } catch (error) {
+      // Fallback to mailto if FormSubmit fails
+      console.log('Using mailto fallback');
+      window.location.href = mailtoLink;
+      
+      // Show success message
       setTimeout(() => {
-        successMessage.classList.remove('show');
-      }, 5000);
-    }, 1500);
+        successMessage.classList.add('show');
+        contactForm.reset();
+        
+        setTimeout(() => {
+          successMessage.classList.remove('show');
+        }, 5000);
+      }, 500);
+    }
+
+    // Re-enable submit button
+    submitBtn.disabled = false;
+    submitBtn.innerHTML = '<span>Send Message</span><i class="fas fa-paper-plane"></i>';
+
+    // Log to console (for development/testing)
+    console.log('Form Data:', formData);
+  } else {
+    // Scroll to first error
+    const firstError = contactForm.querySelector('.error');
+    if (firstError) {
+      firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
   }
+});
+
+// Smooth scroll for internal links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      target.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  });
 });
 </script>
 
 </body>
-</html>
+</html> 
