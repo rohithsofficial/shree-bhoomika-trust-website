@@ -10,6 +10,7 @@
     { "source": "/activities.html", "destination": "/activities", "permanent": true },
     { "source": "/gallery.html", "destination": "/gallery", "permanent": true },
     { "source": "/contact-us.html", "destination": "/contact-us", "permanent": true },
+    { "source": "/Donation.html", "destination": "/donation", "permanent": true },
     { "source": "/donation.html", "destination": "/donation", "permanent": true }
   ],
   "rewrites": [
@@ -21,6 +22,7 @@
     { "source": "/activities", "destination": "/activities.html" },
     { "source": "/gallery", "destination": "/gallery.html" },
     { "source": "/contact-us", "destination": "/contact-us.html" },
-    { "source": "/donation", "destination": "/donation.html" }
+    { "source": "/donation", "destination": "/donation.html" },
+    { "source": "/Donation", "destination": "/donation.html" }
   ]
 }
