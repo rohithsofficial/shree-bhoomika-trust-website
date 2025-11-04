@@ -12,6 +12,7 @@
     { "source": "/contact-us.html", "destination": "/contact-us", "permanent": true },
     { "source": "/donation.html", "destination": "/donation", "permanent": true }
   ],
+  
   "rewrites": [
     { "source": "/", "destination": "/index.html" },
     { "source": "/about-us", "destination": "/about-us.html" },
