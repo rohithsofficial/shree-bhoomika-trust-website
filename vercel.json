@@ -1,4 +1,17 @@
 {
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "redirects": [
+    { "source": "/index.html", "destination": "/", "permanent": true },
+    { "source": "/about-us.html", "destination": "/about-us", "permanent": true },
+    { "source": "/trustees.html", "destination": "/trustees", "permanent": true },
+    { "source": "/legal.html", "destination": "/legal", "permanent": true },
+    { "source": "/objectives.html", "destination": "/objectives", "permanent": true },
+    { "source": "/activities.html", "destination": "/activities", "permanent": true },
+    { "source": "/gallery.html", "destination": "/gallery", "permanent": true },
+    { "source": "/contact-us.html", "destination": "/contact-us", "permanent": true },
+    { "source": "/Donation.html", "destination": "/donation", "permanent": true }
+  ],
   "rewrites": [
     { "source": "/", "destination": "/index.html" },
     { "source": "/about-us", "destination": "/about-us.html" },
