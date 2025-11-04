@@ -782,6 +782,287 @@ footer {
     font-size: 0.85rem;
   }
 }
+
+.food-donation-hero {
+  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 50%, #fcd34d 100%);
+  border-radius: 1rem;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 8px 24px rgba(245, 158, 11, 0.2);
+  border: 3px solid #f59e0b;
+  position: relative;
+  overflow: hidden;
+}
+
+.food-donation-hero::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%);
+  animation: shimmer 3s infinite;
+}
+
+@keyframes shimmer {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(-20px, -20px); }
+}
+
+.food-donation-hero h3 {
+  color: #1f2937;
+  font-size: 1.6rem;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  position: relative;
+  z-index: 1;
+}
+
+.food-donation-hero h3 i {
+  font-size: 2rem;
+  color: #f97316;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+.food-donation-subtitle {
+  color: #6b7280;
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.meal-options {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  position: relative;
+  z-index: 1;
+}
+
+.meal-card {
+  background: white;
+  border-radius: 0.75rem;
+  padding: 1.5rem 1rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 3px solid transparent;
+  position: relative;
+  overflow: hidden;
+}
+
+.meal-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #f97316, #f59e0b, #f97316);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.meal-card:hover::before {
+  transform: scaleX(1);
+}
+
+.meal-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.15);
+}
+
+.meal-card.selected {
+  border-color: #f97316;
+  background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
+  transform: translateY(-8px);
+  box-shadow: 0 12px 32px rgba(249, 115, 22, 0.3);
+}
+
+.meal-card.selected::before {
+  transform: scaleX(1);
+}
+
+.meal-icon {
+  font-size: 2.5rem;
+  margin-bottom: 0.75rem;
+  display: block;
+}
+
+.meal-time {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.meal-price {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #f97316;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.meal-description {
+  font-size: 0.85rem;
+  color: #6b7280;
+  line-height: 1.4;
+}
+
+.meal-card.featured {
+  position: relative;
+}
+
+.meal-card.featured::after {
+  content: '⭐ Most Popular';
+  position: absolute;
+  top: 10px;
+  right: -30px;
+  background: linear-gradient(135deg, #f97316, #ea580c);
+  color: white;
+  padding: 0.25rem 2rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  transform: rotate(45deg);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.impact-note {
+  background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+  border-left: 4px solid #10b981;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  margin-top: 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.impact-note i {
+  color: #10b981;
+  font-size: 1.2rem;
+  margin-right: 0.5rem;
+}
+
+.impact-note strong {
+  color: #1f2937;
+  font-size: 0.95rem;
+}
+
+.impact-note span {
+  color: #6b7280;
+  font-size: 0.9rem;
+}
+
+/* Custom Amount Section */
+.custom-amount-section {
+  margin-bottom: 2rem;
+}
+
+.custom-amount-section h3 {
+  font-size: 1.2rem;
+  color: #1f2937;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.custom-amount-section h3 i {
+  color: #9333ea;
+}
+
+.quick-amounts {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+}
+
+.quick-amount-btn {
+  padding: 0.875rem;
+  border: 2px solid #e5e7eb;
+  border-radius: 0.5rem;
+  background: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.quick-amount-btn:hover {
+  border-color: #9333ea;
+  background: rgba(147, 51, 234, 0.05);
+  transform: translateY(-2px);
+}
+
+.quick-amount-btn.selected {
+  border-color: #9333ea;
+  background: linear-gradient(135deg, #faf5ff 0%, #f3e8ff 100%);
+  transform: translateY(-2px);
+}
+
+.quick-amount-btn .amount {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #9333ea;
+  display: block;
+}
+
+.quick-amount-btn .label {
+  font-size: 0.8rem;
+  color: #6b7280;
+  margin-top: 0.25rem;
+}
+
+/* Mobile Responsive */
+@media (max-width: 968px) {
+  .meal-options {
+    grid-template-columns: 1fr;
+  }
+
+  .meal-card.featured::after {
+    top: 8px;
+    right: -35px;
+    padding: 0.2rem 2.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .food-donation-hero {
+    padding: 1.5rem;
+  }
+
+  .food-donation-hero h3 {
+    font-size: 1.3rem;
+  }
+
+  .quick-amounts {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .food-donation-hero h3 {
+    font-size: 1.2rem;
+  }
+
+  .meal-icon {
+    font-size: 2rem;
+  }
+
+  .meal-price {
+    font-size: 1.5rem;
+  }
+}
 </style>
 </head>
 <body>
@@ -923,141 +1204,187 @@ footer {
     </div>
 
     <!-- Right Section: Acknowledgment Form -->
-    <div class="form-section">
-      <h2>
-        <i class="fas fa-file-alt"></i>
-        Submit Donation Details
-      </h2>
+<div class="form-section">
+ <div class="food-donation-hero">
+  <h3>
+    <i class="fas fa-utensils"></i>
+    Sponsor Meals for Senior Citizens
+  </h3>
+  <p class="food-donation-subtitle">Feed those who nurtured us. Your donation provides nutritious meals to our elderly residents.</p>
+  
+  <div class="meal-options">
+    <div class="meal-card" onclick="selectMealAmount(3000, 'morning')">
+      <span class="meal-icon">🌅</span>
+      <span class="meal-time">Morning Meal</span>
+      <span class="meal-price">₹3,000</span>
+      <p class="meal-description">Healthy breakfast for all residents</p>
+    </div>
+    
+    <div class="meal-card" onclick="selectMealAmount(5000, 'afternoon')">
+      <span class="meal-icon">☀️</span>
+      <span class="meal-time">Afternoon Meal</span>
+      <span class="meal-price">₹5,000</span>
+      <p class="meal-description">Nutritious lunch with variety</p>
+    </div>
+    
+    <div class="meal-card featured" onclick="selectMealAmount(10000, 'fullday')">
+      <span class="meal-icon">🍽️</span>
+      <span class="meal-time">Full Day Meals</span>
+      <span class="meal-price">₹10,000</span>
+      <p class="meal-description">3 complete meals for entire day</p>
+    </div>
+  </div>
+  
+  <div class="impact-note">
+    <i class="fas fa-heart"></i>
+    <strong>Your Impact:</strong>
+    <span>Each meal donation feeds 30-40 senior citizens with dignity and care.</span>
+  </div>
+</div>
 
-      <div class="donation-options">
-        <div class="donation-option" onclick="selectAmount(50)">
-          <span class="amount">₹50</span>
-          <span class="label">One Meal</span>
-        </div>
-        <div class="donation-option" onclick="selectAmount(2000)">
-          <span class="amount">₹2,000</span>
-          <span class="label">Full Day Food</span>
-        </div>
-        <div class="donation-option" onclick="selectAmount('custom')">
-          <span class="amount">Custom</span>
-          <span class="label">Any Amount</span>
-        </div>
-      </div>
+<!-- Custom Amount Section -->
+<div class="custom-amount-section">
+  <h3>
+    <i class="fas fa-hand-holding-heart"></i>
+    Other Donation Options
+  </h3>
+  <div class="quick-amounts">
+    <div class="quick-amount-btn" onclick="selectAmount(500)">
+      <span class="amount">₹500</span>
+      <span class="label">Support Care</span>
+    </div>
+    <div class="quick-amount-btn" onclick="selectAmount(2000)">
+      <span class="amount">₹2,000</span>
+      <span class="label">Medical Help</span>
+    </div>
+    <div class="quick-amount-btn" onclick="selectAmount('custom')">
+      <span class="amount">Custom</span>
+      <span class="label">Any Amount</span>
+    </div>
+  </div>
+</div>
 
-      <form id="donationForm">
-        <div class="form-group">
-          <label for="donorName">
-            Your Name <span class="required">*</span>
-          </label>
-          <input 
-            type="text" 
-            id="donorName" 
-            name="donorName" 
-            placeholder="Enter your full name"
-            required
-          >
-        </div>
+  <h2 style="margin-top: 2rem;">
+    <i class="fas fa-file-alt"></i>
+    Submit Donation Details
+  </h2>
 
-        <div class="form-group">
-          <label for="email">
-            Email Address <span class="required">*</span>
-          </label>
-          <input 
-            type="email" 
-            id="email" 
-            name="email" 
-            placeholder="your.email@example.com"
-            required
-          >
-        </div>
+  <form id="donationForm">
+    <div class="form-group">
+      <label for="donorName">
+        Your Name <span class="required">*</span>
+      </label>
+      <input 
+        type="text" 
+        id="donorName" 
+        name="donorName" 
+        placeholder="Enter your full name"
+        required
+      >
+    </div>
 
-        <div class="form-group">
-          <label for="phone">
-            Phone Number <span class="required">*</span>
-          </label>
-          <input 
-            type="tel" 
-            id="phone" 
-            name="phone" 
-            placeholder="+91 XXXXX XXXXX"
-            required
-          >
-        </div>
+    <div class="form-group">
+      <label for="email">
+        Email Address <span class="required">*</span>
+      </label>
+      <input 
+        type="email" 
+        id="email" 
+        name="email" 
+        placeholder="your.email@example.com"
+        required
+      >
+    </div>
 
-        <div class="form-group">
-          <label for="amount">
-            Donation Amount (₹) <span class="required">*</span>
-          </label>
-          <input 
-            type="number" 
-            id="amount" 
-            name="amount" 
-            placeholder="Enter amount"
-            min="1"
-            required
-          >
-        </div>
+    <div class="form-group">
+      <label for="phone">
+        Phone Number <span class="required">*</span>
+      </label>
+      <input 
+        type="tel" 
+        id="phone" 
+        name="phone" 
+        placeholder="+91 XXXXX XXXXX"
+        required
+      >
+    </div>
 
-        <div class="form-group">
-          <label for="transactionId">
-            Transaction ID / UTR Number <span class="required">*</span>
-          </label>
-          <input 
-            type="text" 
-            id="transactionId" 
-            name="transactionId" 
-            placeholder="Enter transaction reference number"
-            required
-          >
-        </div>
+    <div class="form-group">
+      <label for="amount">
+        Donation Amount (₹) <span class="required">*</span>
+      </label>
+      <input 
+        type="number" 
+        id="amount" 
+        name="amount" 
+        placeholder="Enter amount"
+        min="1"
+        required
+        value="10000"
+      >
+    </div>
 
-        <div class="form-group">
-          <label for="screenshot">
-            Upload Payment Screenshot <span class="required">*</span>
-          </label>
-          <div class="file-upload">
-            <input 
-              type="file" 
-              id="screenshot" 
-              name="screenshot" 
-              accept="image/*"
-              required
-            >
-            <label for="screenshot" class="file-label">
-              <i class="fas fa-cloud-upload-alt"></i>
-              <span>Click to upload screenshot</span>
-            </label>
-            <div class="file-name" id="fileName"></div>
-          </div>
-        </div>
+    <div class="form-group">
+      <label for="transactionId">
+        Transaction ID / UTR Number <span class="required">*</span>
+      </label>
+      <input 
+        type="text" 
+        id="transactionId" 
+        name="transactionId" 
+        placeholder="Enter transaction reference number"
+        required
+      >
+    </div>
 
-        <div class="form-group">
-          <label for="message">
-            Message (Optional)
-          </label>
-          <textarea 
-            id="message" 
-            name="message" 
-            rows="3" 
-            placeholder="Any message or dedication..."
-          ></textarea>
-        </div>
-
-        <button type="submit" class="submit-btn" id="submitBtn">
-          <span class="btn-text">
-            <i class="fas fa-paper-plane"></i>
-            Submit Donation Details
-          </span>
-          <div class="spinner"></div>
-        </button>
-      </form>
-
-      <div class="success-message" id="successMessage">
-        <i class="fas fa-check-circle"></i>
-        <h3>Thank You for Your Contribution!</h3>
-        <p>We have received your donation details. You will receive a confirmation email shortly once verified.</p>
+    <div class="form-group">
+      <label for="screenshot">
+        Upload Payment Screenshot <span class="required">*</span>
+      </label>
+      <div class="file-upload">
+        <input 
+          type="file" 
+          id="screenshot" 
+          name="screenshot" 
+          accept="image/*"
+          required
+        >
+        <label for="screenshot" class="file-label">
+          <i class="fas fa-cloud-upload-alt"></i>
+          <span>Click to upload screenshot</span>
+        </label>
+        <div class="file-name" id="fileName"></div>
       </div>
     </div>
+
+    <div class="form-group">
+      <label for="message">
+        Message (Optional)
+      </label>
+      <textarea 
+        id="message" 
+        name="message" 
+        rows="3" 
+        placeholder="Any message or dedication..."
+      ></textarea>
+    </div>
+
+    <button type="submit" class="submit-btn" id="submitBtn">
+      <span class="btn-text">
+        <i class="fas fa-paper-plane"></i>
+        Submit Donation Details
+      </span>
+      <div class="spinner"></div>
+    </button>
+  </form>
+
+  <div class="success-message" id="successMessage">
+    <i class="fas fa-check-circle"></i>
+    <h3>Thank You for Your Contribution!</h3>
+    <p>We have received your donation details. You will receive a confirmation email shortly once verified.</p>
+  </div>
+</div>
+
   </div>
 </main>
 
@@ -1171,17 +1498,13 @@ function selectAmount(amount) {
   document.querySelectorAll('.donation-option').forEach(option => {
     option.classList.remove('selected');
   });
-  
+
   event.target.closest('.donation-option').classList.add('selected');
-  
+
   const amountInput = document.getElementById('amount');
-  if (amount === 'custom') {
-    amountInput.value = '';
-    amountInput.focus();
-  } else {
-    amountInput.value = amount;
-  }
+  amountInput.value = amount;
 }
+
 
 // File Upload Display
 document.getElementById('screenshot').addEventListener('change', function(e) {
@@ -1333,6 +1656,59 @@ function downloadQRCode() {
   // Set image source
   img.src = qrImage.src;
 }
+
+function selectMealAmount(amount, mealType) {
+  // Remove selection from all meal cards
+  document.querySelectorAll('.meal-card').forEach(card => {
+    card.classList.remove('selected');
+  });
+  
+  // Remove selection from quick amount buttons
+  document.querySelectorAll('.quick-amount-btn').forEach(btn => {
+    btn.classList.remove('selected');
+  });
+  
+  // Add selection to clicked card
+  event.target.closest('.meal-card').classList.add('selected');
+  
+  // Set amount
+  const amountInput = document.getElementById('amount');
+  amountInput.value = amount;
+}
+
+// Quick Amount Selection (Update your existing selectAmount function)
+function selectAmount(amount) {
+  // Remove selection from all quick amount buttons
+  document.querySelectorAll('.quick-amount-btn').forEach(option => {
+    option.classList.remove('selected');
+  });
+  
+  // Remove selection from meal cards
+  document.querySelectorAll('.meal-card').forEach(card => {
+    card.classList.remove('selected');
+  });
+  
+  // Add selection to clicked button
+  event.target.closest('.quick-amount-btn').classList.add('selected');
+  
+  const amountInput = document.getElementById('amount');
+  if (amount === 'custom') {
+    amountInput.value = '';
+    amountInput.focus();
+  } else {
+    amountInput.value = amount;
+  }
+}
+
+// Update your form reset to also clear meal cards
+// Add this to your existing form submission success handler:
+document.querySelectorAll('.meal-card').forEach(card => {
+  card.classList.remove('selected');
+});
+
+document.querySelectorAll('.quick-amount-btn').forEach(btn => {
+  btn.classList.remove('selected');
+});
 </script>
 
 </body>
