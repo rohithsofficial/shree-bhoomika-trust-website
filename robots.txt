@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://sbsst-org.vercel.app/sitemap.xml
+Sitemap: https://sbsst.org/sitemap.xml
