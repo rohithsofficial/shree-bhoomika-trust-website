@@ -1,4 +1,5 @@
 User-agent: *
-Disallow:
+Disallow: /Donation
+Allow: /
 
-Sitemap: https://sbsst.org/sitemap.xml
+Sitemap: https://www.sbsst.org/sitemap.xml
