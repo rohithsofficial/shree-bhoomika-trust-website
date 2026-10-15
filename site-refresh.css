@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&display=swap');
 
-/* Shared visual refresh for Shree Bhoomika Social Service Trust */
+/* Shared visual refresh for Sri Bhoomika Social Service Trust */
 :root {
   --primary: #176b52 !important;
   --primary-dark: #0d4639 !important;
@@ -161,3 +161,14 @@ footer a:hover { color: #fff !important; }
 }
 .developer-credit a:hover { filter: drop-shadow(0 0 8px rgba(217,70,239,.45)); }
 .developer-heart { display: inline-block; margin: 0 .08rem; }
+/* Official receipt identity and contact details */
+header .logo { gap: .7rem !important; }
+header .brand-mark { width: 48px; height: 48px; flex: 0 0 48px; object-fit: contain; border-radius: 8px; background: #fff; }
+header .logo-copy { display: flex !important; flex-direction: column; gap: .18rem; min-width: 0; white-space: normal; }
+header .brand-title { color: #174c3c !important; font-size: clamp(.78rem, 1.1vw, 1.02rem) !important; line-height: 1.15; font-weight: 700; }
+header .brand-tagline { color: #65756d !important; font-size: .56rem !important; line-height: 1.2; letter-spacing: .055em; font-weight: 600; text-transform: uppercase; }
+@media (max-width: 600px) {
+  header .brand-mark { width: 42px; height: 42px; flex-basis: 42px; }
+  header .brand-title { font-size: .79rem !important; }
+  header .brand-tagline { font-size: .5rem !important; }
+}
